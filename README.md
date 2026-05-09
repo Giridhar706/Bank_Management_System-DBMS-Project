@@ -1,168 +1,266 @@
-\# Bank Management System - SQL Server Mini Project
+# Bank Management System - SQL Server Mini Project
 
+## Project Overview
 
+The Bank Management System is a database mini project developed using Microsoft SQL Server and T-SQL. The project simulates real-world banking operations such as customer management, account handling, transaction processing, loan management, and audit logging.
 
-\## Project Description
+The project has been designed by applying database normalization techniques and advanced SQL concepts including DDL, DML, joins, subqueries, views, indexes, functions, triggers, TCL, and DCL commands.
 
-This project is a Bank Management System developed using Microsoft SQL Server and T-SQL. The project demonstrates database design, normalization, DDL, DML, joins, subqueries, views, indexes, functions, triggers, TCL, and DCL commands.
+---
 
+# Objectives
 
+* Design a normalized relational database system
+* Manage customer and account information efficiently
+* Track banking transactions and loan details
+* Maintain data integrity using constraints
+* Demonstrate advanced SQL concepts
+* Implement secure and optimized database operations
 
-\---
+---
 
+# Technologies Used
 
+* Microsoft SQL Server
+* SQL Server Management Studio (SSMS)
+* T-SQL
+* GitHub
 
-\## Features Implemented
+---
 
+# Database Modules
 
+## 1. Customer Management
 
-\- Customer Management
+Stores customer personal information and banking details.
 
-\- Account Management
+## 2. Account Management
 
-\- Transaction Management
+Handles account creation, account types, balances, and status.
 
-\- Loan Management
+## 3. Transaction Management
 
-\- Audit Logging
+Maintains transaction records such as deposits, withdrawals, and transfers.
 
-\- SQL Joins
+## 4. Loan Management
 
-\- Subqueries
+Tracks loan details, loan amounts, interest rates, and status.
 
-\- Views
+## 5. Audit Logging
 
-\- Indexes
+Automatically records transaction activities using SQL triggers.
 
-\- Scalar Functions
+---
 
-\- Triggers
+# Tables Used
 
-\- TCL Commands
+| Table Name   | Description                         |
+| ------------ | ----------------------------------- |
+| Customers    | Stores customer details             |
+| Accounts     | Stores account information          |
+| Transactions | Stores transaction records          |
+| Loans        | Stores loan details                 |
+| AuditLog     | Stores trigger-generated audit logs |
 
-\- DCL Commands
+---
 
-\- Normalization up to BCNF
+# SQL Concepts Implemented
 
+## DDL Commands
 
+* CREATE
+* ALTER
+* DROP
+* TRUNCATE
 
-\---
+## DML Commands
 
+* INSERT
+* UPDATE
+* DELETE
 
+## Constraints
 
-\## Technologies Used
+* PRIMARY KEY
+* FOREIGN KEY
+* UNIQUE
+* NOT NULL
+* CHECK
 
+## Querying
 
+* SELECT
+* WHERE
+* ORDER BY
+* GROUP BY
+* HAVING
 
-\- Microsoft SQL Server
+## Advanced SQL
 
-\- SQL Server Management Studio (SSMS)
+* INNER JOIN
+* LEFT JOIN
+* RIGHT JOIN
+* FULL JOIN
+* Subqueries
+* Views
+* Indexes
+* Scalar Functions
+* Triggers
 
-\- T-SQL
+## TCL Commands
 
-\- GitHub
+* COMMIT
+* ROLLBACK
 
+## DCL Commands
 
+* GRANT
+* REVOKE
 
-\---
+---
 
+# Features Implemented
 
+* Customer registration and management
+* Bank account management
+* Transaction tracking
+* Loan management system
+* Audit log generation using triggers
+* View-based reporting
+* Query optimization using indexes
+* Transaction handling using TCL
+* Access control using DCL
+* Database normalization up to BCNF
 
-\## Database Tables
+---
 
+# Relationship Overview
 
+* One Customer can have multiple Accounts
+* One Account can have multiple Transactions
+* One Customer can have multiple Loans
 
-1\. Customers
+---
 
-2\. Accounts
+# Project Structure
 
-3\. Transactions
-
-4\. Loans
-
-5\. AuditLog
-
-
-
-\---
-
-
-
-\## Project Structure
-
-
-
+```bash
 Bank-Management-System-DBMS
-
 │
-
 ├── SQL
-
+│   ├── 01_database_setup.sql
+│   ├── 02_tables.sql
+│   ├── 03_insert_data.sql
+│   ├── 04_alter_update_delete.sql
+│   ├── 05_basic_queries.sql
+│   ├── 06_joins.sql
+│   ├── 07_subqueries.sql
+│   ├── 08_groupby_having.sql
+│   ├── 09_views.sql
+│   ├── 10_indexes.sql
+│   ├── 11_functions.sql
+│   ├── 12_triggers.sql
+│   ├── 13_tcl.sql
+│   ├── 14_dcl.sql
+│   └── 15_complex_queries.sql
+│
 ├── ERD
-
+│   └── er_diagram.png
+│
 ├── Documentation
-
+│   └── normalization_report.pdf
+│
 ├── Output
-
+│   └── screenshots
+│
 └── README.md
+```
 
+---
 
+# How to Execute the Project
 
-\---
+1. Open SQL Server Management Studio (SSMS)
+2. Execute SQL files sequentially
+3. Verify tables and outputs using SELECT queries
+4. Execute joins, views, triggers, and functions
+5. Check audit logs and transaction outputs
 
+---
 
+# Sample Queries
 
-\## How to Execute
+## Fetch All Customers
 
+```sql
+SELECT * FROM Customers;
+```
 
+## Fetch Savings Account Holders
 
-1\. Open SQL Server Management Studio
+```sql
+SELECT * FROM Accounts
+WHERE AccountType = 'Savings';
+```
 
-2\. Execute SQL files in sequence
+## Fetch Customer and Account Details Using JOIN
 
-3\. Verify outputs using SELECT queries
+```sql
+SELECT
+    C.FullName,
+    A.AccountType,
+    A.Balance
+FROM Customers C
+INNER JOIN Accounts A
+ON C.CustomerID = A.CustomerID;
+```
 
+---
 
+# Trigger Demonstration
 
-\---
+The project includes an AFTER INSERT trigger on the Transactions table that automatically inserts records into the AuditLog table whenever a new transaction is added.
 
+---
 
+# Function Demonstration
 
-\## Sample SQL Concepts Used
+A scalar function has been implemented to calculate annual interest based on account balance and interest rate.
 
+---
 
+# Normalization
 
-\- CREATE TABLE
+The database has been normalized up to BCNF to:
 
-\- INSERT
+* Reduce redundancy
+* Improve consistency
+* Maintain referential integrity
+* Enhance scalability
 
-\- UPDATE
+---
 
-\- DELETE
+# Learning Outcomes
 
-\- JOINS
+Through this project, the following concepts were successfully implemented:
 
-\- SUBQUERIES
+* Database Design
+* Relational Modeling
+* SQL Programming
+* Query Optimization
+* Trigger Automation
+* Transaction Management
+* Access Control
+* Normalization Techniques
 
-\- VIEWS
+---
 
-\- FUNCTIONS
-
-\- TRIGGERS
-
-\- TCL
-
-\- DCL
-
-
-
-\---
-
-
-
-\## Author
-
-
+# Author
 
 Giridhar Gopal
 
+---
+
+# License
+
+This project is developed for educational and academic purposes.

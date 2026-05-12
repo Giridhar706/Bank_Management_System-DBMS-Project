@@ -263,4 +263,4 @@ Giridhar Gopal
 
 # License
 
-This project is developed for educational and academic purposes.
+This Mini Project is developed as a part of the intensive Wipro NGA Training Program.
